@@ -13,11 +13,11 @@ return {
   keys = function()
     local keys = {
       {
-        '<leader>H',
+        '<leader>wa',
         function()
           require('harpoon'):list():add()
         end,
-        desc = 'Harpoon File',
+        desc = '[W]orkspace [A]dd File',
       },
       {
         '<leader>h',
@@ -25,16 +25,17 @@ return {
           local harpoon = require 'harpoon'
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
-        desc = 'Harpoon Quick Menu',
+        desc = '[W]orkspace [H]arpoon List',
       },
     }
 
-    for i = 1, 5 do
+    for i = 1, 3 do
       table.insert(keys, {
         '<leader>' .. i,
         function()
           require('harpoon'):list():select(i)
         end,
+        desc = 'Harpoon File ' .. i,
       })
     end
     return keys
